@@ -9,17 +9,31 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var monsterImage: UIImageView!
+    
+    @IBOutlet weak var countLabel: UILabel!
+    
+    var count = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        monsterImage.image = UIImage(named: "frame1.png")
+        //countLabel.text = String(count)
+        countLabel.text = "frame\(count).png"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func btnAction(_ sender: Any) {
+        count += 1
+        if(count>5){
+            count = 1
+        }
+        monsterImage.image = UIImage(named: "frame\(count).png")
+        //countLabel.text = String(count)
+        countLabel.text = "frame\(count).png"
     }
+    
+    }
+    
 
-
-}
 
